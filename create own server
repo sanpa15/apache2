@@ -1,0 +1,19 @@
+apt update
+apt install apache2
+systemctl status apache2
+systemctl enable apache2
+then go to apache2 configuration files
+cd/etc/apache2# cp apache2.conf apache2.conf_backup
+now edit the apache2.conf file  vim apache2.conf
+add server name your domainname  (pandi.com)
+then go to sites-available directory
+then copy the file /etc/apache2/sites-available# cp 000-default.conf pandi.com.conf
+now edit vim pandi.com.conf file  add servername your domainname ,webmaster@your domain, doc root /var/www/html/pandi.com
+now go to cd /var/www/html/ then create directory pandi.com
+now move to pandi.com create index.html file var/www/html/pandi.com# touch index.html
+vim index.html file add the content hi this is my first page
+and edit vim/etc/hosts file add 127.0.1.1 your domain name(pandi.com)
+now run the command a2ensite pandi.com.conf
+apache2ctl -t run it then terminal syntex ok
+finally restart the service systemctl restart apache2
+go to browser type pandi.com and enter your ip then show the your content(this is my first page)
